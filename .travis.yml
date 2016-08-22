@@ -1,0 +1,22 @@
+sudo: required
+
+os:
+  - linux
+  - osx
+
+services:
+  - docker
+
+before_install: 
+  - docker pull weihanglo/geo-jupyter
+  - docker ps -a
+
+script:
+  - docker run -it --rm weihanglo/geo-jupyter R --version
+  - docker run -it --rm weihanglo/geo-jupyter jupyter --version
+  - docker run -d -p 8888:8888 --name geojupyter weihanglo/geo-jupyter
+  - sleep 3 && docker ps | grep geojupyter
+
+after_script:
+  - docker stop geojupyter
+  - docker rm $(docker ps -aq)

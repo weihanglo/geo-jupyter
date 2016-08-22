@@ -1,5 +1,7 @@
-Geospatial Jupyter Notebook in Docker X Fedora
-==============================================
+# Geospatial Jupyter in Docker X Fedora
+
+[![Docker Automated build](https://img.shields.io/docker/automated/weihanglo/geo-spatial.svg)](https://hub.docker.com/r/weihanglo/geo-jupyter)
+[![Travis](https://img.shields.io/travis/weihanglo/geo-spatial.svg)]()
 
 When [Fedora][1] meets [Jupyter][2], [Docker][3]ness will show you the [spatial][4] light.
 
@@ -45,7 +47,7 @@ You could also run alternative commands in the container.
 docker run -it --rm weihanglo/geo-jupyter bash
 ```
 
-## Why not use the official Jupyter Notebook Image
+## Why not use official Jupyter Image
 
 Because I am a big fan of **Fedora**!!
 

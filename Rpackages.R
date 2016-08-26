@@ -1,6 +1,5 @@
 # for spatial task
 install.packages(c(
-    "devtools",
     "ggmap",
     "leaflet",
     "maps",

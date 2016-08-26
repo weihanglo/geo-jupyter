@@ -2,22 +2,21 @@ sudo: required
 
 os:
   - linux
-  - osx
 
 services:
   - docker
 
 before_install: 
-  - docker build -t weihanglo/geo-jupyter .
+  - docker build -t geo-jupyter .
 
 script:
-  - docker images | grep "weihanglo/geo-jupyter"
-  - docker run -it --rm weihanglo/geo-jupyter R --version
-  - docker run -it --rm weihanglo/geo-jupyter jupyter --version
-  - docker run -d -p 8888:8888 --name geojupyter weihanglo/geo-jupyter
-  - sleep 3 && docker ps | grep geojupyter
+  - docker images | grep "geo-jupyter"
+  - docker run -it --rm geo-jupyter R --version
+  - docker run -it --rm geo-jupyter jupyter --version
+  - docker run -d -p 8888:8888 --name geo-jupyter geo-jupyter
+  - sleep 3 && docker ps | grep geo-jupyter
 
 after_script:
-  - docker stop geojupyter
+  - docker stop geo-jupyter
   - docker rm $(docker ps -aq)
-  - docker rmi weihanglo/geo-jupyter
+  - docker rmi geo-jupyter

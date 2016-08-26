@@ -7,20 +7,12 @@ MAINTAINER Weihang Lo <b01605002@gmail.com>
 USER root
 
 # setting environment variables
-ENV NB_USER nbuser
-ENV NB_UID  1000
-ENV SHELL   /bin/bash
+ENV WORKDIR /home/notebooks
+ENV SHELL /bin/bash
 
-# add nbuser
-RUN useradd -mN -s /bin/bash -u $NB_UID $NB_USER
-
-# change to nbuser account
-USER $NB_USER
-RUN mkdir -p /home/$NB_USER/notebooks/
-WORKDIR /home/$NB_USER/notebooks
-
-
-USER root
+# mkdir
+RUN mkdir -p $WORKDIR
+WORKDIR $WORKDIR
 
 # install  packages
 RUN dnf install -y \
@@ -37,6 +29,9 @@ RUN dnf install -y \
 RUN dnf install -y \
     openssl-devel \
     gdal-devel \
+    proj-devel \
+    proj-nad \
+    proj-epsg \
     curl-devel \
     tar && \
     dnf autoremove && \
@@ -44,15 +39,12 @@ RUN dnf install -y \
 
 
 # install r and irkernel
-COPY Rpackages.R /opt/
+COPY Rpackages /opt/
 RUN echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"))' >> $(R RHOME)/etc/Rprofile.site && \
-    Rscript /opt/Rpackages.R && rm /opt/Rpackages.R 
-
+    Rscript /opt/Rpackages && rm /opt/Rpackages
 
 # setup default entrypoint
 COPY docker_entrypoint.sh /usr/local/bin/
 
-
-USER $NB_USER
 ENTRYPOINT ["docker_entrypoint.sh"]
 EXPOSE 8888

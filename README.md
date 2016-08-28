@@ -44,13 +44,13 @@ Just open your **firefox** and work as normal!
 If you need to share files/directories between docker container and the host machine, use `-v` or `--volume` flag to link the two volumes:
 
 ```bash
-docker run -d -p 8888:8888 -v /path/to/host:/path/to/container weihanglo/geo-jupyter
+docker run -d -p 8888:8888 -v /path/to/host:/home/notebooks weihanglo/geo-jupyter
 ```
 
 or simplify the host path to current work directory:
 
 ```bash
-docker run -d -p 8888:8888 -v $(pwd):/path/to/container weihanglo/geo-jupyter
+docker run -d -p 8888:8888 -v $(pwd):/home/notebooks weihanglo/geo-jupyter
 ```
 
 You could also run alternative commands in the container.

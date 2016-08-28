@@ -32,7 +32,9 @@ RUN dnf install -y \
     proj-devel \
     proj-nad \
     proj-epsg \
+    geos-devel \
     curl-devel \
+    libjpeg-turbo-devel \
     tar && \
     dnf autoremove && \
     dnf clean all

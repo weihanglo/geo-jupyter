@@ -8,7 +8,7 @@ install.packages(c(
     "rgdal",
     "rgeos",
     "sp",
-    "spatstats",
+    "spatstat",
     "splancs"
 ))
 

@@ -1,6 +1,6 @@
 # Geospatial Jupyter in Docker X Fedora
 
-[![Docker Automated build](https://img.shields.io/docker/automated/weihanglo/geo-jupyter.svg)](https://hub.docker.com/r/weihanglo/geo-jupyter)
+[![Docker Automated build](https://img.shields.io/docker/automated/weihanglo/geo-jupyter.svg)](https://hub.docker.com/r/weihanglo/geo-jupyter) [![](https://images.microbadger.com/badges/image/weihanglo/geo-jupyter.svg)](https://microbadger.com/images/weihanglo/geo-jupyter "Get your own image badge on microbadger.com")
 [![Travis](https://img.shields.io/travis/weihanglo/geo-jupyter.svg)](https://travis-ci.org/weihanglo/geo-jupyter)
 
 When [Fedora][1] meets [Jupyter][2], [Docker][3]ness will show you the [spatial][4] light.
@@ -66,3 +66,4 @@ Because I am a big fan of **Fedora**!!
 ## License
 
 MIT
+ 
